@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TITLE</title>
+        <link href="/app/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="/app/css/custom_css.css" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/app/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/app/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/app/favicon/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/app/favicon/favicon.ico">
+        <link rel="manifest" href="/app/favicon/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <a href="/">
+        <img src="/app/img/misc/android-chrome-512x512.png" style="max-width: 50px; margin: 2em 0em 0em 2em;" alt="Home" class="home-icon">
+    </a>
+    <body onload="getTasks()">
+        <script type = "text/javascript" src="/app/js/bootstrap/bootstrap.bundle.min.js"></script>
+        <script type = "text/javascript" src = "/app/js/functions.js"  env_type="<%= env_type %>"></script>
+        <script type = "text/javascript" src = "/app/js/tasks/tasks.js"  env_type="<%= env_type %>"></script>
+
+        <div id="current_tasks" style="text-align: center;">This week's tasks</div>
+        <br/>
+        <div id="upcoming_tasks" style="text-align: center;">Upcoming tasks</div>
+    </body>
+</html>
+

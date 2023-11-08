@@ -1,0 +1,108 @@
+#save_success_message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4CAF50; /* Green background color */
+    color: #FFFFFF; /* White text color */
+    text-align: center;
+    padding: 10px;
+    opacity: 1;
+    transition: opacity 1s ease; /* Add a CSS transition for opacity */
+}
+#save_error_message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: red; /* Green background color */
+    color: #FFFFFF; /* White text color */
+    text-align: center;
+    padding: 10px;
+    opacity: 1;
+    transition: opacity 1s ease; /* Add a CSS transition for opacity */
+}
+
+    button.weekly{
+        background-color: #0d6efd;
+        --bs-btn-border-color: #0d6efd
+    }
+
+    button.weekly:hover {
+        background-color: #0d6efd;
+        --bs-btn-border-color: #0d6efd
+    }
+
+button.biweekly{
+    background-color: #198754;
+    --bs-btn-border-color: #198754;
+}
+
+button.biweekly:hover{
+    background-color: #198754;
+    --bs-btn-border-color: #198754;
+}
+
+button.monthly{
+    background-color: #fd7e14;
+    --bs-btn-border-color: #fd7e14;
+}
+button.monthly:hover{
+    background-color: #fd7e14;
+    --bs-btn-border-color: #fd7e14;
+}
+
+button.bimonthly{
+    background-color: #6610f2;
+    --bs-btn-border-color: #6610f2;
+}
+button.bimonthly:hover{
+    background-color: #6610f2;
+    --bs-btn-border-color: #6610f2;
+}
+
+button.quarterly{
+    background-color: #495057;
+    --bs-btn-border-color: #495057;
+}
+button.quarterly:hover{
+    background-color: #495057;
+    --bs-btn-border-color: #495057;
+}
+
+button.biannually{
+    background-color:#d63384;
+    --bs-btn-border-color:#d63384;
+}
+button.biannually:hover{
+    background-color:#d63384;
+    --bs-btn-border-color:#d63384;
+}
+button.yearly{
+    background-color: #ffc107;
+    --bs-btn-border-color: #ffc107;
+}
+button.yearly:hover{
+    background-color: #ffc107;
+    --bs-btn-border-color: #ffc107;
+}
+
+button.biennially{
+    background-color: #664d03;
+    --bs-btn-border-color: #664d03;
+}
+button.biennially:hover{
+    background-color: #664d03;
+    --bs-btn-border-color: #664d03;
+}
+
+/* Stefan size */
+/* Adjust the width for smaller screens (e.g., screens smaller than 992px) */
+@media (max-width: 992px) {
+    .current_img_container {
+        width: 65vw !important; /* Adjust this value to your desired width for smaller screens (e.g., mobile devices) */
+        height: 65vw !important;
+    }
+}

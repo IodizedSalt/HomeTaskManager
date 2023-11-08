@@ -1,0 +1,21 @@
+{
+  "name": "homemaintenance",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "First Last <first.last@example.com>",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env SCRIPT_TYPE=start nodemon --ignore ./src/app/data/ src/app/app.js",
+    "start_local_dev": "cross-env SCRIPT_TYPE=start_local_dev nodemon --ignore ./src/app/data/ src/app/app.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "3.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
