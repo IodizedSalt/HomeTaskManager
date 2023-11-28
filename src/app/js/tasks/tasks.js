@@ -1,3 +1,11 @@
+// Initial start date that will be forever used to calculate when tasks need to be accomplished
+// ヽ༼ຈل͜ຈ༽ﾉ All hail ISO 8601 ヽ༼ຈل͜ຈ༽ﾉ
+var start_date = new Date("2023-08-11T00:00:00.000Z")
+var start_date_week_number = getISOWeekNumber(start_date);
+
+var current_date = new Date()
+var current_week_number = getISOWeekNumber(new Date())
+
 function getISOWeekNumber(date) {
     const d = new Date(date);
     d.setHours(0, 0, 0, 0);
@@ -201,4 +209,16 @@ function appendFutureTaskToDom(task_list) {
         node.appendChild(textnode);
         document.getElementById("upcoming_tasks").appendChild(node);
     });
+}
+
+// Add new tasks
+function addNewTask(){
+    // TODO: Accept parameters in modal for creating new task
+    Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
+
 }

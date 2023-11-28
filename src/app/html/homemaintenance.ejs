@@ -18,13 +18,27 @@
         <img src="/app/img/misc/android-chrome-512x512.png" style="max-width: 50px; margin: 2em 0em 0em 2em;" alt="Home" class="home-icon">
     </a>
     <body onload="getTasks()">
-        <script type = "text/javascript" src="/app/js/bootstrap/bootstrap.bundle.min.js"></script>
+        <!-- <script type = "text/javascript" src="/app/js/bootstrap/bootstrap.bundle.min.js"></script> -->
         <script type = "text/javascript" src = "/app/js/functions.js"  env_type="<%= env_type %>"></script>
+        <script type = "text/javascript"  src="/app/js/dependencies/sweetalert/sweetalert.all.min.js"></script>
         <script type = "text/javascript" src = "/app/js/tasks/tasks.js"  env_type="<%= env_type %>"></script>
-
-        <div id="current_tasks" style="text-align: center;">This week's tasks</div>
-        <br/>
-        <div id="upcoming_tasks" style="text-align: center;">Upcoming tasks</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div>
+                    <button class="btn btn-secondary" onclick="addNewTask()">
+                        Add new task
+                    </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="current_tasks" style="text-align: center;">This week's tasks</div>
+                    <br/>
+                    <div id="upcoming_tasks" style="text-align: center;">Upcoming tasks</div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
     </body>
 </html>
 

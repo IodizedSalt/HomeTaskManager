@@ -4,6 +4,8 @@ const path = require("path");
 const port = 8000;
 const routes = require("./routes");
 const fs = require("fs");
+const Swal = require('sweetalert2')
+
 const cors = require('cors');
 
 app.use(express.json());
@@ -36,6 +38,11 @@ app.post('/count', (req, res) => {
     res.json(options);
   });
 });
+
+app.post("/new-task", (req, res)=>{
+  
+})
+
 app.post('/list-tasks', (req, res) => {
   const current_week_number = req.body.current_week_number;
   const current_year = req.body.current_year;
@@ -49,7 +56,7 @@ app.post('/list-tasks', (req, res) => {
   const validPeriodicities = ['weekly', 'biweekly', 'monthly', 'bimonthly', 'quarterly', 'biannually', 'yearly', 'biennially'];
 
   function checkIfPeriodicityLapsed(task) {
-    console.log(task)
+    // console.log(task)
       const timepoints = {
           weekly: 1,
           biweekly: 2,
@@ -83,7 +90,7 @@ app.post('/list-tasks', (req, res) => {
           };
           if (tasks.periodicity.hasOwnProperty(current_periodicity)) {
               const taskList = tasks.periodicity[current_periodicity].tasks;
-              console.log(taskList)
+              // console.log(taskList)
               for (let taskId in taskList) {
                   if (taskList.hasOwnProperty(taskId)) {
                       const taskName = taskList[taskId];
@@ -96,7 +103,6 @@ app.post('/list-tasks', (req, res) => {
                                       if (status.completed_tasks[year].hasOwnProperty(week)) {
                                           for (let i = 0; i < status.completed_tasks[year][week].length; i++) {
                                               const task = status.completed_tasks[year][week][i];
-                                              console.log(task)
                                               if (task.task_id === taskId && task.periodicity === current_periodicity) {
                                                   if (checkIfPeriodicityLapsed(task)) {
                                                       taskCompleted = true;
@@ -125,7 +131,6 @@ app.post('/list-tasks', (req, res) => {
   
   // Example usage:
   const tasks_list = checkTasksPeriodicity(taskData, statusData);
-  console.log(tasks_list);
   res.json(tasks_list)
 
 
@@ -177,7 +182,6 @@ function calculateNumberOfWeeksFromPeriodicity(periodicity, current_week_number)
 
 app.post('/list-tasks-status', (req, res) => {
   fs.readFile(__dirname + '/data/home_maintenance_tasks_status.json', (err, tasks) => {
-    console.log(JSON.parse(tasks));
     const tasks_list_status = JSON.parse(tasks);
     res.json(tasks_list_status);
   });
@@ -230,7 +234,6 @@ app.post('/complete-task', (req, res) => {
               if (err) {
                   console.error('Error writing file:', err);
               } else {
-                  console.log(`Successfully updated week ${current_week_number}.`);
                   res.json({status: 0, task_id: task_id, periodicity: periodicity})
               }
           });
@@ -243,20 +246,17 @@ app.post('/complete-task', (req, res) => {
 });
 
 app.post('/get-notepad', (req, res) => {
-  console.log(req.body);
   fs.readFile(__dirname + '/data/notepad.txt', (err, text) => {
     res.send(text);
   });
 });
 
 app.post('/save-notepad', (req, res) => {
-  console.log(req.body);
   fs.writeFile(__dirname + '/data/notepad.txt', req.body['notepad_text'], (err) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Error writing to the file.");
     }
-    console.log("File has been written successfully.");
     res.send({ response_text: "File has been written successfully.", notepad_text: req.body['notepad_text'] });
   });
 });

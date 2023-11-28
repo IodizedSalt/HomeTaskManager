@@ -1,0 +1,3 @@
+- Tasks.js
+    -Accept parameters in modal for creating new task, and append them to the file
+    -Fix script/package imports in ejs files
