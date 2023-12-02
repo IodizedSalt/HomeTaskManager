@@ -8,6 +8,7 @@ const Swal = require('sweetalert2')
 
 const cors = require('cors');
 
+
 app.use(express.json());
 
 app.use(cors({
@@ -39,10 +40,11 @@ app.post('/count', (req, res) => {
   });
 });
 
-app.post("/new-task", (req, res)=>{
-  
-})
-
+app.post("/add-new-task", (req, res) => {
+  const filePath = path.join(__dirname, 'html', 'modals' ,'add_task.ejs');
+  res.render(filePath);
+  // https://stackoverflow.com/questions/2159724/how-can-escaping-be-used-to-prevent-xss-attacks
+});
 app.post('/list-tasks', (req, res) => {
   const current_week_number = req.body.current_week_number;
   const current_year = req.body.current_year;

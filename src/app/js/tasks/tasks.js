@@ -212,13 +212,30 @@ function appendFutureTaskToDom(task_list) {
 }
 
 // Add new tasks
-function addNewTask(){
-    // TODO: Accept parameters in modal for creating new task
-    Swal.fire({
-        title: 'Error!',
-        text: 'Do you want to continue',
-        icon: 'error',
-        confirmButtonText: 'Cool'
-      })
-
+function addNewTask() {
+    fetch(API_PREFIX + "/add-new-task", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
+        },
+        mode: 'cors'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+    })
+    .then(htmlContent => {
+        console.log(htmlContent)
+        Swal.fire({
+            html: htmlContent,
+            showCloseButton: true,
+            showConfirmButton: false
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching modal content:', error);
+    });
 }
